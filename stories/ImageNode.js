@@ -12,6 +12,15 @@ export const createImageNode = ({ imageUrl, tags = [] } = {}) => {
   const img = document.createElement('img');
   img.className = 'image-node__img';
   img.src = imageUrl || PLACEHOLDER;
+  const setCardWidthToImage = () => {
+    // Compute displayed image width from natural size with max-height 280 constraint
+    if (!img.naturalWidth || !img.naturalHeight) return;
+    const scale = img.naturalHeight > 280 ? 280 / img.naturalHeight : 1;
+    const displayWidth = Math.round(img.naturalWidth * scale);
+    card.style.width = displayWidth + 'px';
+  };
+  img.addEventListener('load', setCardWidthToImage);
+  if (img.complete) setCardWidthToImage();
   media.appendChild(img);
 
   const content = document.createElement('div');
@@ -32,4 +41,3 @@ export const createImageNode = ({ imageUrl, tags = [] } = {}) => {
   card.appendChild(content);
   return card;
 };
-
