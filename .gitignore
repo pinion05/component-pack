@@ -1,0 +1,32 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs
+dist/
+build/
+.cache/
+coverage/
+.nyc_output/
+*.tsbuildinfo
+.eslintcache
+
+# Storybook
+storybook-static/
+*.log
+
+# Frameworks
+.next/
+out/
+.nuxt/
+.vercel/
+
+# Env and local
+.env
+.env.*
+.DS_Store
+.idea/
+.vscode/
